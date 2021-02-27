@@ -1,0 +1,17 @@
+const { MessageEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
+const config = require("../../botconfig/config.json");
+const color = require("../../botconfig/colors.json");
+
+module.exports = {	
+	name: "",
+	category: "", 
+	cooldown: 0, 
+	usage: "",
+  	description: "", 
+
+	
+  run: async (client, message, args, user, text, prefix) => {
+
+	}
+}
