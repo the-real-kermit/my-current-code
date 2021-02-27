@@ -1,0 +1,32 @@
+    let collector = msg.createReactionCollector(
+        (reaction, user) => user.id === message.author.id
+      );
+
+      collector.on("collect", async (reaction, user) => {
+        if (reaction._emoji.name === "🟢") {
+          client.user.setPresence({
+            activity: { name: "Type | m-help", type: "PLAYING" },
+            status: "online"
+  });
+        }
+
+        if (reaction._emoji.name === "🔴") {
+         client.on("ready", () => {
+           console.log("Back Up Loaded");
+           client.user.setPresence({
+             activity: { name: "Type | m-help", type: "PLAYING" },
+             status: "dnd"
+  });
+});
+        }
+
+        if (reaction._emoji.name === "⚪") {
+          client.user.setPresence({
+            activity: { name: "Type | m-help", type: "PLAYING" },
+            status: "invisible"
+  });
+        }
+
+        // Remove the reaction when the user react to the message
+        await reaction.users.remove(message.author.id);
+      });
